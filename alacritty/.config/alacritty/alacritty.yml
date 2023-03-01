@@ -19,10 +19,10 @@ key_bindings:
 font:
     size: 15.5
     normal:
-      family: Source Code Pro
+      family: SauceCodePro NFM
       style: Regular
     italic:
-      family: Source Code Pro
+      family: SauceCodePro NFM
       style: Italic
 schemes:
   tokyo-night: &tokyo-night

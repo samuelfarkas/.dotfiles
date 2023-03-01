@@ -3,6 +3,7 @@ require('rose-pine').setup({
     dark_variant = 'moon',
 })
 require 'colorizer'.setup()
+require 'nvim-web-devicons'.setup { }
 
 function SetColor(color)
     color = color or "rose-pine"

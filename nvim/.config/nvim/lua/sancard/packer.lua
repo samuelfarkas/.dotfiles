@@ -14,6 +14,17 @@ return require('packer').startup(function(use)
     use('numToStr/Comment.nvim')
     use('lewis6991/gitsigns.nvim')
     use('NvChad/nvim-colorizer.lua')
+    use('kyazdani42/nvim-web-devicons')
+    use('github/copilot.vim')
+
+    use {
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'kyazdani42/nvim-web-devicons',
+        }
+    }
 
     use {
         'jose-elias-alvarez/null-ls.nvim',
