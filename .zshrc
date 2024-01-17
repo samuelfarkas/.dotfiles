@@ -123,6 +123,8 @@ alias killdocker='docker kill $(docker ps -q)'
 # ADD TO PATH
 export PATH=$PATH:$HOME/bin
 
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
@@ -132,3 +134,19 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/samuelfarkas/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/samuelfarkas/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/Users/samuelfarkas/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/samuelfarkas/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

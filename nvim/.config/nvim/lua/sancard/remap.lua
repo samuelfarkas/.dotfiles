@@ -36,9 +36,6 @@ vim.keymap.set("n", "Q", "<nop>")
 -- Find in system to create new tmux session
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
--- format file
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
 -- quickfix list navigation
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")

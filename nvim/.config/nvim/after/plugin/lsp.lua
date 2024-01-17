@@ -4,11 +4,11 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
     'tsserver',
-    'sumneko_lua',
+    'lua_ls',
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -63,8 +63,26 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
+
 lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true,
 })
+
+-- Function to copy diagnostics to clipboard
+function Copy_diagnostics_to_clipboard()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+    local diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line)
+    local diagnostic_messages = {}
+    for _, diagnostic in ipairs(diagnostics) do
+        table.insert(diagnostic_messages, diagnostic.message)
+    end
+
+    local message = table.concat(diagnostic_messages, "\n")
+    vim.fn.setreg('+', message)
+    print("Diagnostics copied to clipboard")
+end
+
+-- vim.cmd("command! CopyDiagnostics lua Copy_diagnostics_to_clipboard()")
