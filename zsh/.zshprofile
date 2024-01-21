@@ -3,10 +3,6 @@ alias cls='clear'
 alias vim='nvim'
 alias killdocker='docker kill $(docker ps -q)'
 
-# oh-my-zsh
-ZSH_THEME="spaceship"
-plugins=(git)
-
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -19,7 +15,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Bind keys
+bindkey -v
 bindkey -s ^f "tmux-sessionizer\n"
 
 # PATH
 export PATH=$PATH:$HOME/bin
+
+# Spaceship theme 
+eval spaceship_vi_mode_enable
+eval spaceship add --before char vi_mode
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_USER_SHOW=always
