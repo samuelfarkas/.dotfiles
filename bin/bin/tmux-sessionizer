@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh 
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/dev ~/dev/learning ~/dev/advixory -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/ ~/dev ~/dev/learning ~/dev/advixory ~/dev/other ~/dev/omnetic ~/dev/spatialized -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

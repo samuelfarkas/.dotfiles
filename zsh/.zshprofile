@@ -1,3 +1,9 @@
+# Fns
+'teas-dms'() {
+    cd ~/dev/omnetic/backend-monorepo/projects/dms
+    ../../bin/teas-mono "$@"
+}
+
 # Aliases
 alias cls='clear'
 alias vim='nvim'
@@ -20,6 +26,13 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 # PATH
 export PATH=$PATH:$HOME/bin
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
+# OpenJDK
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 
 # Spaceship theme 
 eval spaceship_vi_mode_enable

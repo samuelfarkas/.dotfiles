@@ -104,3 +104,5 @@ source $ZSH/oh-my-zsh.sh
 
 # needs to be last
 [[ -f ~/.zshprofile ]] && source ~/.zshprofile
+[[ -f ~/.zshprivate ]] && source ~/.zshprivate
+eval "$(~/.local/bin/mise activate zsh)"
