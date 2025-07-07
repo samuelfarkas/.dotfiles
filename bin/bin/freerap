@@ -1,0 +1,23 @@
+#!/usr/bin/env sh 
+
+set -e
+
+# List the exact “Application Name” as shown in /Applications or Activity Monitor
+APPS=( "Cursor" "Obsidian" "Brave Browser" "Zen Browser" "Slack" "Discord" "Notion" "Notion Calendar" "Visual Studio Code" "eslintd", "Docker" "node" "Arc" "Google Chrome" "TickTick" "Activity Monitor" "Spotify" "Xcode" "Finder" "prettierd" "nvim" "lazygit")
+
+echo "1) Quitting apps: ${APPS[*]}"
+for app in "${APPS[@]}"; do
+  if pgrep -xq "$app"; then
+    osascript -e "tell application \"$app\" to quit"
+    pkill -9 "$app" || true
+  fi
+done
+
+echo "2) Flushing disk cache…"
+sudo purge
+
+echo "3) Forcing severe memory-pressure cleanup…"
+sudo memory_pressure -S -l critical
+
+echo "4) Done. Current VM stats:"
+vm_stat
